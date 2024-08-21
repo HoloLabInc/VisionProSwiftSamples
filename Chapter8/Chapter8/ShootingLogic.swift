@@ -67,6 +67,13 @@ class ShootingLogic: ObservableObject {
             let bulletClone = bullet.clone(recursive: true)
             bulletClone.position = position
             bulletClone.physicsMotion?.linearVelocity = velocity
+            // 重力が効くかを乱数で決める
+            let g = Bool.random()
+            bulletClone.physicsBody?.isAffectedByGravity = g
+            // 重力が効くかによって色を変える
+            var material = PhysicallyBasedMaterial()
+            material.baseColor = .init(tint: g ? .green : .red, texture: nil)
+            bulletClone.model?.materials = [material]
             bulletRoot.addChild(bulletClone)
             // アクションのコールバック
             shootAction()
