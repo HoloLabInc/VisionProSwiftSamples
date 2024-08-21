@@ -18,6 +18,7 @@
 		C3E575212BF1C633004E3EDC /* SceneReconstruction.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3E575202BF1C633004E3EDC /* SceneReconstruction.swift */; };
 		C3E575232BF1D739004E3EDC /* WorldTracking.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3E575222BF1D739004E3EDC /* WorldTracking.swift */; };
 		C3E575252BF1FFD9004E3EDC /* ImageTracking.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3E575242BF1FFD9004E3EDC /* ImageTracking.swift */; };
+		C82B73A22C756EAD00D36A38 /* MeshResourceExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C82B73A12C756EAD00D36A38 /* MeshResourceExtension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +35,7 @@
 		C3E575202BF1C633004E3EDC /* SceneReconstruction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneReconstruction.swift; sourceTree = "<group>"; };
 		C3E575222BF1D739004E3EDC /* WorldTracking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorldTracking.swift; sourceTree = "<group>"; };
 		C3E575242BF1FFD9004E3EDC /* ImageTracking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageTracking.swift; sourceTree = "<group>"; };
+		C82B73A12C756EAD00D36A38 /* MeshResourceExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeshResourceExtension.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -76,6 +78,7 @@
 				C3E575202BF1C633004E3EDC /* SceneReconstruction.swift */,
 				C3E5751C2BF11433004E3EDC /* HandTracking.swift */,
 				C3E575222BF1D739004E3EDC /* WorldTracking.swift */,
+				C82B73A12C756EAD00D36A38 /* MeshResourceExtension.swift */,
 				C3E575112BEF6563004E3EDC /* Assets.xcassets */,
 				C3E575162BEF6563004E3EDC /* Info.plist */,
 				C3E575132BEF6563004E3EDC /* Preview Content */,
@@ -174,6 +177,7 @@
 			files = (
 				C3E575212BF1C633004E3EDC /* SceneReconstruction.swift in Sources */,
 				C3E5750E2BEF6562004E3EDC /* ContentView.swift in Sources */,
+				C82B73A22C756EAD00D36A38 /* MeshResourceExtension.swift in Sources */,
 				C3E5750C2BEF6562004E3EDC /* Chapter8App.swift in Sources */,
 				C3E5751F2BF1145F004E3EDC /* ShootingLogic.swift in Sources */,
 				C3E575252BF1FFD9004E3EDC /* ImageTracking.swift in Sources */,

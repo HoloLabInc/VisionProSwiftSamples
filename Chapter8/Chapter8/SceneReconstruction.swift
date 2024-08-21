@@ -33,11 +33,17 @@ class SceneReconstruction: ObservableObject {
             // 障害物用のメッシュを作成
             guard let shape = try? await ShapeResource
                 .generateStaticMesh(from: meshAnchor) else { continue }
+            guard let mesh = try? await MeshResource(
+                from: MeshResource.Contents(geom: meshAnchor.geometry)
+            ) else { continue }
             switch update.event {
             // 障害物が新規に追加された場合
             case .added:
-                // 追加された物体から障害物 Entity を作成、物理演算機能を追加
-                let entity = ModelEntity()
+                // 追加された物体から障害物 Entity を作成、隠面処理と物理演算機能を追加
+                let entity = ModelEntity(
+                    mesh: mesh,
+                    materials: [OcclusionMaterial()]
+                )
                 entity.transform = Transform(
                     matrix: meshAnchor.originFromAnchorTransform
                 )
@@ -54,6 +60,7 @@ class SceneReconstruction: ObservableObject {
             case .updated:
                 // 物体の id を取得して形状と位置を更新
                 guard let entity = meshEntities[meshAnchor.id] else { continue }
+                entity.model?.mesh = mesh
                 entity.transform = Transform(
                     matrix: meshAnchor.originFromAnchorTransform
                 )
