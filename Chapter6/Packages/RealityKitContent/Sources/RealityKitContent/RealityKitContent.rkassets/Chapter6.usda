@@ -1,0 +1,818 @@
+#usda 1.0
+(
+    customLayerData = {
+        string creator = "Reality Composer Pro Version 1.0 (409.100.15)"
+    }
+    defaultPrim = "Root"
+    metersPerUnit = 1
+    upAxis = "Y"
+)
+
+def Xform "Root"
+{
+    reorder nameChildren = ["Axes", "Sphere", "Cube", "Cube_1", "Cube_2", "Cube_3", "AudioFiles", "AmbientAudio", "ChannelAudio", "ParticleEmitter"]
+    def Xform "Axes" (
+        active = true
+    )
+    {
+        def Xform "X_Axis" (
+            active = true
+        )
+        {
+            quatf xformOp:orient = (1, 0, 0, 0)
+            float3 xformOp:scale = (1, 1, 1)
+            float3 xformOp:translate = (0, 0, 0)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+
+            def Cube "Cube" (
+                active = true
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </Root/Axes/X_Axis/Cube/DefaultMaterial>
+                double size = 0.2
+                quatf xformOp:orient = (1, 0, 0, 0)
+                float3 xformOp:scale = (1, 0.1, 0.1)
+                float3 xformOp:translate = (0.1, 0, 0)
+                uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+
+                def Material "DefaultMaterial"
+                {
+                    token outputs:mtlx:surface
+                    token outputs:realitykit:vertex
+                    prepend token outputs:surface.connect = </Root/Axes/X_Axis/Cube/DefaultMaterial/DefaultSurfaceShader.outputs:surface>
+
+                    def Shader "DefaultSurfaceShader"
+                    {
+                        uniform token info:id = "UsdPreviewSurface"
+                        color3f inputs:diffuseColor = (1, 0.14913142, 0) (
+                            colorSpace = "srgb_texture"
+                        )
+                        float inputs:roughness = 0.75
+                        token outputs:surface
+                    }
+                }
+            }
+
+            def Cone "Cone" (
+                active = true
+                prepend apiSchemas = ["MaterialBindingAPI"]
+                customData = {
+                    float3 rotationEulerHint = (0, 0, 4.712389)
+                }
+            )
+            {
+                uniform token axis = "Y"
+                double height = 0.2
+                rel material:binding = </Root/Axes/X_Axis/Cone/DefaultMaterial>
+                double radius = 0.1
+                quatf xformOp:orient = (0.70710677, 0, 0, -0.70710677)
+                float3 xformOp:scale = (0.19999994, 0.19999994, 0.19999994)
+                float3 xformOp:translate = (0.22, 0, 0)
+                uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+
+                def Material "DefaultMaterial"
+                {
+                    token outputs:mtlx:surface
+                    token outputs:realitykit:vertex
+                    prepend token outputs:surface.connect = </Root/Axes/X_Axis/Cone/DefaultMaterial/DefaultSurfaceShader.outputs:surface>
+
+                    def Shader "DefaultSurfaceShader"
+                    {
+                        uniform token info:id = "UsdPreviewSurface"
+                        color3f inputs:diffuseColor = (1, 0.14913142, 0) (
+                            colorSpace = "srgb_texture"
+                        )
+                        float inputs:roughness = 0.75
+                        token outputs:surface
+                    }
+                }
+            }
+        }
+
+        def Xform "Y_Axis" (
+            active = true
+        )
+        {
+            quatf xformOp:orient = (1, 0, 0, 0)
+            float3 xformOp:scale = (1, 1, 1)
+            float3 xformOp:translate = (0, 0, 0)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+
+            def Cube "Cube" (
+                active = true
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </Root/Axes/Y_Axis/Cube/DefaultMaterial>
+                double size = 0.2
+                quatf xformOp:orient = (1, 0, 0, 0)
+                float3 xformOp:scale = (0.1, 1, 0.1)
+                float3 xformOp:translate = (0, 0.1, 0)
+                uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+
+                def Material "DefaultMaterial"
+                {
+                    token outputs:mtlx:surface
+                    token outputs:realitykit:vertex
+                    prepend token outputs:surface.connect = </Root/Axes/Y_Axis/Cube/DefaultMaterial/DefaultSurfaceShader.outputs:surface>
+
+                    def Shader "DefaultSurfaceShader"
+                    {
+                        uniform token info:id = "UsdPreviewSurface"
+                        color3f inputs:diffuseColor = (0, 0.97680455, 0) (
+                            colorSpace = "srgb_texture"
+                        )
+                        float inputs:roughness = 0.75
+                        token outputs:surface
+                    }
+                }
+            }
+
+            def Cone "Cone" (
+                active = true
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                uniform token axis = "Y"
+                double height = 0.2
+                rel material:binding = </Root/Axes/Y_Axis/Cone/DefaultMaterial>
+                double radius = 0.1
+                quatf xformOp:orient = (1, 0, 0, 0)
+                float3 xformOp:scale = (0.19999994, 0.19999994, 0.19999994)
+                float3 xformOp:translate = (0, 0.22, 0)
+                uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+
+                def Material "DefaultMaterial"
+                {
+                    token outputs:mtlx:surface
+                    token outputs:realitykit:vertex
+                    prepend token outputs:surface.connect = </Root/Axes/Y_Axis/Cone/DefaultMaterial/DefaultSurfaceShader.outputs:surface>
+
+                    def Shader "DefaultSurfaceShader"
+                    {
+                        uniform token info:id = "UsdPreviewSurface"
+                        color3f inputs:diffuseColor = (0, 0.97680455, 0) (
+                            colorSpace = "srgb_texture"
+                        )
+                        float inputs:roughness = 0.75
+                        token outputs:surface
+                    }
+                }
+            }
+        }
+
+        def Xform "Z_Axis" (
+            active = true
+        )
+        {
+            quatf xformOp:orient = (1, 0, 0, 0)
+            float3 xformOp:scale = (1, 1, 1)
+            float3 xformOp:translate = (0, 0, 0)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+
+            def Cube "Cube" (
+                active = true
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </Root/Axes/Z_Axis/Cube/DefaultMaterial>
+                double size = 0.2
+                quatf xformOp:orient = (1, 0, 0, 0)
+                float3 xformOp:scale = (0.1, 0.1, 1)
+                float3 xformOp:translate = (0, 0, 0.1)
+                uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+
+                def Material "DefaultMaterial"
+                {
+                    token outputs:mtlx:surface
+                    token outputs:realitykit:vertex
+                    prepend token outputs:surface.connect = </Root/Axes/Z_Axis/Cube/DefaultMaterial/DefaultSurfaceShader.outputs:surface>
+
+                    def Shader "DefaultSurfaceShader"
+                    {
+                        uniform token info:id = "UsdPreviewSurface"
+                        color3f inputs:diffuseColor = (0.016804177, 0.198351, 1) (
+                            colorSpace = "srgb_texture"
+                        )
+                        float inputs:roughness = 0.75
+                        token outputs:surface
+                    }
+                }
+            }
+
+            def Cone "Cone" (
+                active = true
+                prepend apiSchemas = ["MaterialBindingAPI"]
+                customData = {
+                    float3 rotationEulerHint = (1.5707963, 0, 0)
+                }
+            )
+            {
+                uniform token axis = "Y"
+                double height = 0.2
+                rel material:binding = </Root/Axes/Z_Axis/Cone/DefaultMaterial>
+                double radius = 0.1
+                quatf xformOp:orient = (0.70710677, 0.70710677, 0, 0)
+                float3 xformOp:scale = (0.19999994, 0.19999994, 0.19999994)
+                float3 xformOp:translate = (0, 0, 0.22)
+                uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+
+                def Material "DefaultMaterial"
+                {
+                    token outputs:mtlx:surface
+                    token outputs:realitykit:vertex
+                    prepend token outputs:surface.connect = </Root/Axes/Z_Axis/Cone/DefaultMaterial/DefaultSurfaceShader.outputs:surface>
+
+                    def Shader "DefaultSurfaceShader"
+                    {
+                        uniform token info:id = "UsdPreviewSurface"
+                        color3f inputs:diffuseColor = (0.016804177, 0.198351, 1) (
+                            colorSpace = "srgb_texture"
+                        )
+                        float inputs:roughness = 0.75
+                        token outputs:surface
+                    }
+                }
+            }
+        }
+    }
+
+    def Sphere "Sphere" (
+        active = true
+        prepend apiSchemas = ["MaterialBindingAPI"]
+    )
+    {
+        reorder nameChildren = ["MetallicGoldPULeather", "InputTarget", "Collider", "ParticleEmitter"]
+        rel material:binding = </Root/Sphere/MetallicGoldPULeather> (
+            bindMaterialAs = "weakerThanDescendants"
+        )
+        double radius = 0.1
+        float3 xformOp:translate = (0, 1, 0)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+
+        def "MetallicGoldPULeather" (
+            active = true
+            references = @MetallicGoldPULeather.usdz@
+        )
+        {
+            color3f inputs:Basecolor_Tint (
+                customData = {
+                    dictionary realitykit = {
+                        float2 positionInSubgraph = (-56.812614, 67.17455)
+                        float2 sizeInSubgraph = (161, 53)
+                        int stackingOrderInSubgraph = 2333
+                    }
+                }
+            )
+            float2 inputs:UV_Scale (
+                customData = {
+                    dictionary realitykit = {
+                        float2 positionInSubgraph = (-725.2588, 351.55255)
+                        float2 sizeInSubgraph = (139, 53)
+                        int stackingOrderInSubgraph = 2272
+                    }
+                }
+            )
+            float2 ui:nodegraph:realitykit:subgraphOutputs:size = (182, 99)
+
+            over "Dot"
+            {
+                float2 ui:nodegraph:node:size = (44, 18)
+            }
+
+            over "multiply"
+            {
+                float2 ui:nodegraph:node:size = (61, 36)
+            }
+
+            over "add"
+            {
+                float2 ui:nodegraph:node:size = (63, 37)
+            }
+
+            over "PreviewSurface"
+            {
+                float2 ui:nodegraph:node:size = (149, 199)
+            }
+
+            over "Mix"
+            {
+                float2 ui:nodegraph:node:size = (109, 145)
+            }
+
+            over "Swizzle"
+            {
+                float2 ui:nodegraph:node:size = (133, 40)
+            }
+
+            over "Swizzle_1"
+            {
+                float2 ui:nodegraph:node:size = (145, 53)
+            }
+
+            over "Multiply_1"
+            {
+                float2 ui:nodegraph:node:size = (61, 36)
+            }
+
+            over "BaseColor"
+            {
+                float2 ui:nodegraph:node:size = (159, 235)
+            }
+
+            over "Roughness"
+            {
+                float2 ui:nodegraph:node:size = (159, 235)
+            }
+
+            over "Metallic"
+            {
+                float2 ui:nodegraph:node:size = (159, 235)
+            }
+
+            over "Normal"
+            {
+                float2 ui:nodegraph:node:size = (159, 235)
+            }
+        }
+
+        def RealityKitComponent "InputTarget"
+        {
+            uniform token info:id = "RealityKit.InputTarget"
+        }
+
+        def RealityKitComponent "Collider"
+        {
+            uint group = 1
+            uniform token info:id = "RealityKit.Collider"
+            uint mask = 4294967295
+            token type = "Default"
+
+            def RealityKitStruct "Shape"
+            {
+                float3 extent = (0.2, 0.2, 0.2)
+                float radius = 0.1
+                token shapeType = "Sphere"
+
+                def RealityKitStruct "pose"
+                {
+                }
+            }
+        }
+
+        def Xform "ParticleEmitter"
+        {
+            quatf xformOp:orient = (1, 0, 0, 0)
+            float3 xformOp:scale = (1, 1, 1)
+            float3 xformOp:translate = (0, 0, 0)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+
+            def RealityKitComponent "VFXEmitter"
+            {
+                token info:id = "RealityKit.VFXEmitter"
+
+                def RealityKitStruct "currentState"
+                {
+                    token birthDirection = "Normal"
+                    token birthLocation = "Surface"
+                    float3 emissionDirection = (0, 0, 0)
+                    double emissionDuration = 1
+                    double emissionDurationVariation = 0
+                    token emitterShape = "Sphere"
+                    double idleDuration = 0
+                    double idleDurationVariation = 0
+                    bool isLocal = 0
+                    bool isSpawningEnabled = 1
+                    bool loops = 1
+                    float particleSpeed = 0.06
+                    float particleSpeedVariation = 0.04
+                    float3 shapeSize = (0.05, 0.05, 0.05)
+                    bool spawnInheritParentColor = 1
+                    token spawnOccasion = "OnUpdate"
+                    float spawnSpreadFactor = 0
+                    float spawnSpreadFactorVariation = 0
+                    float spawnVelocityFactor = 1
+                    double warmupDuration = 1.5
+
+                    def RealityKitStruct "mainEmitter"
+                    {
+                        float3 acceleration = (0, 0, 0)
+                        token animationRepeatMode = "Looping"
+                        token billboardMode = "Billboard"
+                        float birthRate = 40
+                        float birthRateVariation = 0
+                        token blendMode = "Additive"
+                        float colorEvolutionPower = 1
+                        int64 columnCount = 4
+                        float dampingFactor = 0.25
+                        float4 endColorA = (1, 0.051991113, 1, 1)
+                        float4 endColorB = (0, 0.98059916, 1, 1)
+                        float frameRate = 30
+                        float frameRateVariation = 0
+                        int64 initialFrame = 0
+                        int64 initialFrameVariation = 2
+                        bool isAnimated = 1
+                        bool isLightingEnabled = 0
+                        float noiseAnimationSpeed = 1
+                        float noiseScale = 1
+                        float noiseStrength = 0.1
+                        token opacityOverLife = "GradualFadeInOut"
+                        float particleAngle = 0
+                        float particleAngleVariation = 0.5
+                        float particleAngularVelocity = 0.25
+                        float particleAngularVelocityVariation = 0.5
+                        asset particleImage = @ParticleEmitterPresetTextures/twinkle.exr@
+                        double particleLifeSpan = 1
+                        double particleLifeSpanVariation = 0.2
+                        float particleMass = 1
+                        float particleMassVariation = 0.2
+                        float particleSize = 0.05
+                        float particleSizeVariation = 0.004
+                        float3 radialGravityCenter = (1, 1, 0)
+                        float radialGravityStrength = 0
+                        int64 rowCount = 4
+                        float sizeMultiplierAtEndOfLifespan = 0.35
+                        float sizeMultiplierAtEndOfLifespanPower = 3
+                        token sortOrder = "IncreasingDepth"
+                        float spreadingAngle = 0
+                        float4 startColorA = (1, 0.051991113, 1, 1)
+                        float4 startColorB = (0.9986965, 0.9674097, 0, 1)
+                        float stretchFactor = 0
+                        bool useEndColor = 1
+                        bool useEndColorRange = 1
+                        bool useStartColorRange = 1
+                        float3 vortexDirection = (0, 1, 0)
+                        float vortexStrength = 0
+                    }
+
+                    def RealityKitStruct "spawnedEmitter"
+                    {
+                        float3 acceleration = (0, -0.04, 0)
+                        token animationRepeatMode = "AutoReverse"
+                        token billboardMode = "Billboard"
+                        float birthRate = 25
+                        float birthRateVariation = 0
+                        token blendMode = "Additive"
+                        float colorEvolutionPower = 0
+                        int64 columnCount = 4
+                        float dampingFactor = 3
+                        float4 endColorA = (0, 0.98059916, 1, 1)
+                        float4 endColorB = (1, 0.051991113, 1, 1)
+                        float frameRate = 24
+                        float frameRateVariation = 0
+                        int64 initialFrame = 2
+                        int64 initialFrameVariation = 4
+                        bool isAnimated = 1
+                        bool isLightingEnabled = 0
+                        float noiseAnimationSpeed = 0.25
+                        float noiseScale = 1
+                        float noiseStrength = 0.1
+                        token opacityOverLife = "GradualFadeInOut"
+                        float particleAngle = 0.745
+                        float particleAngleVariation = 0.25
+                        float particleAngularVelocity = 0.25
+                        float particleAngularVelocityVariation = 0
+                        asset particleImage = @ParticleEmitterPresetTextures/twinkle.exr@
+                        double particleLifeSpan = 0.75
+                        double particleLifeSpanVariation = 0.25
+                        float particleMass = 1
+                        float particleMassVariation = 2
+                        float particleSize = 0.02
+                        float particleSizeVariation = 0.004
+                        float3 radialGravityCenter = (0, 0, 0)
+                        float radialGravityStrength = 0
+                        int64 rowCount = 4
+                        float sizeMultiplierAtEndOfLifespan = 0
+                        float sizeMultiplierAtEndOfLifespanPower = 1
+                        token sortOrder = "IncreasingID"
+                        float spreadingAngle = 0
+                        float4 startColorA = (1, 0.051991113, 1, 0.04)
+                        float4 startColorB = (0, 0.98059916, 1, 0.04)
+                        float stretchFactor = 0
+                        bool useEndColor = 0
+                        bool useEndColorRange = 1
+                        bool useStartColorRange = 1
+                        float3 vortexDirection = (0, 1, 0)
+                        float vortexStrength = 0
+                    }
+                }
+            }
+        }
+    }
+
+    def Cube "Cube" (
+        active = true
+        prepend apiSchemas = ["MaterialBindingAPI"]
+    )
+    {
+        rel material:binding = </Root/Cube/Material> (
+            bindMaterialAs = "weakerThanDescendants"
+        )
+        double size = 0.2
+        float3 xformOp:translate = (0, 1, -1)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+
+        def Material "Material"
+        {
+            token outputs:mtlx:surface
+            token outputs:realitykit:vertex
+            prepend token outputs:surface.connect = </Root/Cube/Material/UsdPreviewSurface.outputs:surface>
+
+            def Shader "UsdPreviewSurface"
+            {
+                uniform token info:id = "UsdPreviewSurface"
+                color3f inputs:diffuseColor = (1, 0.14913142, 0) (
+                    colorSpace = "srgb_texture"
+                )
+                float inputs:opacity = 0.8
+                token outputs:surface
+            }
+        }
+
+        def RealityKitComponent "SpatialAudio"
+        {
+            uniform token info:id = "RealityKit.SpatialAudio"
+        }
+    }
+
+    def Cube "Cube_1" (
+        active = true
+        prepend apiSchemas = ["MaterialBindingAPI"]
+    )
+    {
+        rel material:binding = </Root/Cube_1/Material> (
+            bindMaterialAs = "weakerThanDescendants"
+        )
+        double size = 0.2
+        float3 xformOp:translate = (0, 1, 1)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+
+        def Material "Material"
+        {
+            float inputs:Metallic = 1 (
+                customData = {
+                    dictionary realitykit = {
+                        float2 positionInSubgraph = (-167.13281, 102.76172)
+                        float2 sizeInSubgraph = (117, 53)
+                    }
+                }
+            )
+            prepend token outputs:mtlx:surface.connect = </Root/Cube_1/Material/PreviewSurface.outputs:out>
+            token outputs:realitykit:vertex
+            float2 ui:nodegraph:realitykit:subgraphOutputs:pos = (300, 99.5)
+            float2 ui:nodegraph:realitykit:subgraphOutputs:size = (182, 99)
+
+            def Shader "PreviewSurface"
+            {
+                uniform token info:id = "ND_UsdPreviewSurface_surfaceshader"
+                color3f inputs:diffuseColor = (0, 0.97680455, 0) (
+                    colorSpace = "srgb_texture"
+                )
+                float inputs:metallic.connect = </Root/Cube_1/Material.inputs:Metallic>
+                float3 inputs:normal
+                float inputs:opacity
+                float inputs:roughness
+                token outputs:out
+                float2 ui:nodegraph:node:pos = (74.5, 99.5)
+                float2 ui:nodegraph:node:size = (149, 199)
+                int ui:nodegraph:node:stackingOrder = 1
+            }
+        }
+
+        def RealityKitComponent "SpatialAudio"
+        {
+            float directivityFocus = 1
+            uniform token info:id = "RealityKit.SpatialAudio"
+        }
+    }
+
+    def Cube "Cube_2" (
+        active = true
+        prepend apiSchemas = ["MaterialBindingAPI"]
+    )
+    {
+        rel material:binding = </Root/Cube_2/Material> (
+            bindMaterialAs = "weakerThanDescendants"
+        )
+        double size = 0.2
+        float3 xformOp:translate = (1, 1, 0)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+
+        def Material "Material"
+        {
+            prepend token outputs:mtlx:surface.connect = </Root/Cube_2/Material/PreviewSurface.outputs:out>
+            token outputs:realitykit:vertex
+            float2 ui:nodegraph:realitykit:subgraphOutputs:pos = (300, 99.5)
+            float2 ui:nodegraph:realitykit:subgraphOutputs:size = (182, 99)
+
+            def Shader "PreviewSurface"
+            {
+                uniform token info:id = "ND_UsdPreviewSurface_surfaceshader"
+                color3f inputs:diffuseColor.connect = </Root/Cube_2/Material/Combine3.outputs:out>
+                float inputs:metallic
+                float inputs:roughness
+                token outputs:out
+                float2 ui:nodegraph:node:pos = (74.5, 99.5)
+                float2 ui:nodegraph:node:size = (149, 199)
+            }
+
+            def Shader "Time"
+            {
+                uniform token info:id = "ND_time_float"
+                float outputs:out
+                float2 ui:nodegraph:node:pos = (-480.5, 164.45703)
+                float2 ui:nodegraph:node:size = (123, 53)
+                int ui:nodegraph:node:stackingOrder = 31
+            }
+
+            def Shader "Sin"
+            {
+                uniform token info:id = "ND_sin_float"
+                float inputs:in.connect = </Root/Cube_2/Material/Time.outputs:out>
+                float outputs:out
+                float2 ui:nodegraph:node:pos = (-329.01172, 164.0625)
+                float2 ui:nodegraph:node:size = (116, 40)
+                int ui:nodegraph:node:stackingOrder = 29
+            }
+
+            def Shader "Combine3"
+            {
+                uniform token info:id = "ND_combine3_color3"
+                float inputs:in1.connect = </Root/Cube_2/Material/R.outputs:out>
+                float inputs:in2.connect = </Root/Cube_2/Material/G.outputs:out>
+                float inputs:in3.connect = </Root/Cube_2/Material/Sin.outputs:out>
+                color3f outputs:out
+                float2 ui:nodegraph:node:pos = (-138.10938, 105.78906)
+                float2 ui:nodegraph:node:size = (146, 54)
+                int ui:nodegraph:node:stackingOrder = 12
+            }
+
+            def Shader "R"
+            {
+                uniform token info:id = "ND_constant_float"
+                float inputs:value = 0
+                float outputs:out
+                float2 ui:nodegraph:node:pos = (-327.01562, 37.039062)
+                float2 ui:nodegraph:node:size = (116, 53)
+                int ui:nodegraph:node:stackingOrder = 33
+            }
+
+            def Shader "G"
+            {
+                uniform token info:id = "ND_constant_float"
+                float inputs:value = 0
+                float outputs:out
+                float2 ui:nodegraph:node:pos = (-327.04297, 105.4375)
+                float2 ui:nodegraph:node:size = (116, 53)
+                int ui:nodegraph:node:stackingOrder = 26
+            }
+        }
+    }
+
+    def Cube "Cube_3" (
+        active = true
+        prepend apiSchemas = ["MaterialBindingAPI"]
+    )
+    {
+        rel material:binding = </Root/Cube_3/Material> (
+            bindMaterialAs = "weakerThanDescendants"
+        )
+        double size = 0.2
+        float3 xformOp:translate = (-1, 1, 0)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+
+        def Material "Material"
+        {
+            prepend token outputs:mtlx:surface.connect = </Root/Cube_3/Material/PreviewSurface.outputs:out>
+            token outputs:realitykit:vertex.connect = </Root/Cube_3/Material/GeometryModifier.outputs:out>
+            float2 ui:nodegraph:realitykit:subgraphOutputs:pos = (300, 99.5)
+            float2 ui:nodegraph:realitykit:subgraphOutputs:size = (182, 99)
+
+            def Shader "PreviewSurface"
+            {
+                uniform token info:id = "ND_UsdPreviewSurface_surfaceshader"
+                color3f inputs:diffuseColor = (0.99942404, 0.9855537, 0) (
+                    colorSpace = "srgb_texture"
+                )
+                token outputs:out
+                float2 ui:nodegraph:node:pos = (74.5, 99.5)
+                float2 ui:nodegraph:node:size = (149, 199)
+                int ui:nodegraph:node:stackingOrder = 1
+            }
+
+            def Shader "GeometryModifier"
+            {
+                uniform token info:id = "ND_realitykit_geometrymodifier_vertexshader"
+                color4f inputs:color
+                float3 inputs:modelPositionOffset.connect = </Root/Cube_3/Material/Remap.outputs:out>
+                float3 inputs:normal
+                token outputs:out
+                float2 ui:nodegraph:node:pos = (54.597656, 400.8086)
+                float2 ui:nodegraph:node:size = (197, 325)
+                int ui:nodegraph:node:stackingOrder = 6
+            }
+
+            def Shader "Time"
+            {
+                uniform token info:id = "ND_time_float"
+                float outputs:out
+                float2 ui:nodegraph:node:pos = (-683.4283, 324.70337)
+                float2 ui:nodegraph:node:size = (123, 53)
+                int ui:nodegraph:node:stackingOrder = 35
+            }
+
+            def Shader "Sin"
+            {
+                uniform token info:id = "ND_sin_float"
+                float inputs:in.connect = </Root/Cube_3/Material/Time.outputs:out>
+                float outputs:out
+                float2 ui:nodegraph:node:pos = (-503.0257, 323.9235)
+                float2 ui:nodegraph:node:size = (116, 40)
+                int ui:nodegraph:node:stackingOrder = 31
+            }
+
+            def Shader "Cos"
+            {
+                uniform token info:id = "ND_cos_float"
+                float inputs:in.connect = </Root/Cube_3/Material/Time.outputs:out>
+                float outputs:out
+                float2 ui:nodegraph:node:pos = (-502.8927, 375.74106)
+                float2 ui:nodegraph:node:size = (116, 40)
+                int ui:nodegraph:node:stackingOrder = 33
+            }
+
+            def Shader "Combine3"
+            {
+                uniform token info:id = "ND_combine3_vector3"
+                prepend float inputs:in1.connect = </Root/Cube_3/Material/Sin.outputs:out>
+                prepend float inputs:in2.connect = </Root/Cube_3/Material/Cos.outputs:out>
+                float inputs:in3
+                float3 outputs:out
+                float2 ui:nodegraph:node:pos = (-320.9476, 341.24908)
+                float2 ui:nodegraph:node:size = (146, 54)
+                int ui:nodegraph:node:stackingOrder = 29
+            }
+
+            def Shader "Remap"
+            {
+                uniform token info:id = "ND_remap_vector3"
+                float3 inputs:in.connect = </Root/Cube_3/Material/Combine3.outputs:out>
+                float3 inputs:inlow = (-1, -1, -1)
+                float3 inputs:outhigh = (0.3, 0.3, 0.3)
+                float3 inputs:outlow = (-0.3, -0.3, -0.3)
+                float3 outputs:out
+                float2 ui:nodegraph:node:pos = (-158.19945, 364.77368)
+                float2 ui:nodegraph:node:size = (95, 181)
+                int ui:nodegraph:node:stackingOrder = 27
+            }
+        }
+    }
+
+    def Scope "AudioFiles" (
+        active = true
+    )
+    {
+        reorder nameChildren = ["AtmospheresForestFloor", "CatMeow01", "DogBark02"]
+        def "AtmospheresForestFloor" (
+            active = true
+            references = @AtmospheresForestFloor.usdz@
+        )
+        {
+            uniform bool shouldLoop = 1
+        }
+
+        def "CatMeow01" (
+            active = true
+            references = @CatMeow01.usdz@
+        )
+        {
+            uniform bool shouldLoop = 1
+        }
+
+        def "DogBark02" (
+            active = true
+            references = @DogBark02.usdz@
+        )
+        {
+            uniform bool shouldLoop = 1
+        }
+    }
+
+    def Xform "AmbientAudio"
+    {
+        def RealityKitComponent "AmbientAudio"
+        {
+            uniform token info:id = "RealityKit.AmbientAudio"
+        }
+    }
+
+    def Xform "ChannelAudio"
+    {
+        def RealityKitComponent "ChannelAudio"
+        {
+            uniform token info:id = "RealityKit.ChannelAudio"
+        }
+    }
+}
+

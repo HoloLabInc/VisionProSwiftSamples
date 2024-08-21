@@ -1,0 +1,13 @@
+{
+  "images" : [
+    {
+      "filename" : "omikuji_box.png",
+      "idiom" : "vision",
+      "scale" : "2x"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}
