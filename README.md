@@ -42,6 +42,12 @@
 - [シューティングゲーム改: 重力の働く弾と働かない弾を混ぜる](https://github.com/HoloLabInc/VisionProSwiftSamples/pull/2)
 - [さらに表示...](https://github.com/HoloLabInc/VisionProSwiftSamples/labels/さらにステップアップ)
 
+## 正誤表
+
+本書の正誤情報は以下のページで公開しています。
+
+https://github.com/HoloLabInc/VisionProSwiftSamples/wiki/errata
+
 ## visionOS 2.0対応情報
 
 **Coming Soon!** visionOS 2.0の正式発表後、本書の内容をvisionOS 2.0に対応させるための情報を提供する予定です。
