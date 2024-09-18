@@ -48,6 +48,8 @@
 
 https://github.com/HoloLabInc/VisionProSwiftSamples/wiki/errata
 
-## visionOS 2.0対応情報
+## visionOS 2 対応情報
 
-**Coming Soon!** visionOS 2.0の正式発表後、本書の内容をvisionOS 2.0に対応させるための情報を提供する予定です。
+visionOS 2 への対応に関する情報は以下のページで公開しています。
+
+https://github.com/HoloLabInc/VisionProSwiftSamples/wiki/updates
